@@ -1,0 +1,20 @@
+{
+    "name": "danil005/laravel-grpc",
+    "description": "gRPC Laravel Package",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Danil005\\LaravelGrpc\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Danil Sidorenko",
+            "email": "danilsidorenko00@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "orchestra/testbench": "^8.0"
+    }
+}

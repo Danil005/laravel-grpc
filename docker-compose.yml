@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app
+    restart: always
+    networks:
+      - backend
+    volumes:
+      - ./app:/var/www
+
+networks:
+  backend:
+    driver: bridge
