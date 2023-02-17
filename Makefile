@@ -17,4 +17,4 @@ restart: down up
 
 .PHONY: workspace
 workspace:
-	@docker-compose exec app sh
+	@docker-compose exec --user=www-data app zsh

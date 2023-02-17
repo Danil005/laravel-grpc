@@ -8,13 +8,35 @@
             "Danil005\\LaravelGrpc\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Danil005\\LaravelGrpc\\Tests\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "Danil Sidorenko",
             "email": "danilsidorenko00@gmail.com"
         }
     ],
+    "require": {
+        "php": "^8.1",
+        "ext-protobuf": "*",
+        "ext-grpc": "*",
+        "ext-sockets": "*",
+        "spiral/roadrunner": "^2.11",
+        "spiral/roadrunner-laravel": "^5.9",
+        "spiral/roadrunner-grpc": "^2.0",
+        "google/common-protos": "^3.0",
+        "grpc/grpc": "^1.36",
+        "google/protobuf": "^3.11"
+    },
     "require-dev": {
         "orchestra/testbench": "^8.0"
+    },
+    "scripts": {
+        "test": [
+            "./vendor/bin/phpunit"
+        ]
     }
 }

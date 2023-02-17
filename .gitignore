@@ -1,4 +1,7 @@
 /app/vendor
 
 /app/.composer
+/app/phpunit.xml
+/app/.phpunit.result.cache
+/app/.wget-hsts
 .idea

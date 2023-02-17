@@ -59,6 +59,9 @@ RUN docker-php-ext-install intl
 # Install the PHP gmp extention
 RUN docker-php-ext-install gmp
 
+# Install the PHP sockets extention
+RUN docker-php-ext-install sockets
+
 #####################################
 # PHPRedis:
 #####################################
@@ -121,10 +124,22 @@ RUN curl -s http://getcomposer.org/installer | php && \
 # Source the bash
 RUN . ~/.bashrc
 
+RUN usermod -d /home/www-data www-data
+COPY ./home /home/www-data
+
+RUN chown -R www-data:www-data /home/www-data
 RUN usermod -u 1000 www-data
 RUN chown -R www-data:www-data /var/www
 
+RUN apt update && apt install zsh -y
+
 USER www-data
+
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --keep-zshrc" && \
+    git clone https://github.com/zsh-users/zsh-autosuggestions /home/www-data/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+
+RUN echo '\nsource ~/Xzibit/.zshrc' >> ~/.zshrc
+RUN sed -i -r 's/^plugins=\(.*?\)$/plugins=(zsh-autosuggestions laravel5 zsh-navigation-tools alias-finder)/' /home/www-data/.zshrc
 
 WORKDIR /var/www
 
